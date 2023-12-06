@@ -8,7 +8,7 @@ namespace Matrices
 		rows = _rows;
 		cols = _cols;
 		a.resize(rows, vector<double>(cols, 0));
-		
+
 	}
 
 	///Add each corresponding element.
@@ -36,7 +36,7 @@ namespace Matrices
 	///usage: c = a * b;
 	Matrix operator*(const Matrix& a, const Matrix& b)
 	{
-		
+
 		if (a.getCols() != b.getRows())
 		{
 			throw runtime_error("Error: dimensions must agree");
@@ -44,19 +44,19 @@ namespace Matrices
 
 		Matrix c(a.getRows(), b.getCols());
 
-		for(int k = 0; k < b.getCols(); k++)
+		for (int k = 0; k < b.getCols(); k++)
 		{
 			for (int i = 0; i < a.getRows(); i++)
 			{
 				for (int j = 0; j < b.getRows(); j++)
 				{
-					c(i,k) += a(i,j) * b(j,k);
+					c(i, k) += a(i, j) * b(j, k);
 				}
 			}
 		}
 		return c;
 	}
-	
+
 	///Matrix comparison. See description.
 	///usage: a == b
 	bool operator==(const Matrix& a, const Matrix& b)
@@ -80,7 +80,7 @@ namespace Matrices
 			}
 		}
 	}
-	
+
 
 	///Matrix comparison. See description.
 	///usage: a != b
@@ -138,7 +138,7 @@ namespace Matrices
 		a.at(1).at(1) = scale;
 	}
 
-	TranslationMatrix::TranslationMatrix(double xShift, double yShift, int nCols) : Matrix (2, nCols)
+	TranslationMatrix::TranslationMatrix(double xShift, double yShift, int nCols) : Matrix(2, nCols)
 	{
 		for (int i = 0; i < nCols; i++)
 		{
